@@ -1,5 +1,6 @@
 # bot.py
 import os
+from random import randint
 import discord
 import asyncio
 from dotenv import load_dotenv
@@ -9,6 +10,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 
 client = discord.Client()
+
 
 @client.event
 async def on_ready():
@@ -46,10 +48,22 @@ async def on_message(message):
 
     if 'https://old.reddit.com' in message.content.lower():
         # print(message.content)
-        newcontent = message.content.lower().replace('https://old.reddit.com', 'https://reddit.com')
+        newcontent = message.content.lower().replace('https://old.reddit.com', 'https://www.reddit.com')
 
-        await message.channel.send(f'Oupss. Sorry my son is so stubborn here is the proper link\n{newcontent}')
-        await message.delete(delay=3)
+        if message.author == 'NIB#2130':
+            nib_answers = (f"Whoops... Sorry my son @{message.author.mention} is so stubborn! Here is the proper link",
+                            f"My disappointment is immeasurable @{message.author.mention}")
+            random_nib_answer = f"{nib_answers[randint(0,len(nib_answers))]}\n{newcontent}"
+            await message.channel.send(random_nib_answer)
+            await message.delete(delay=3)
+
+        else:
+            generic_answers = (f"Come on dude... You can do better {message.author.mention}", 
+                                f"Wow, didn't expect that from you {message.author.mention}")
+
+            random_generic_answer = f"{generic_answers[randint(0,len(generic_answers))]}\n{newcontent}"
+            await message.channel.send(random_generic_answer)
+            await message.delete(delay=3)
         # await asyncio.sleep(3)
 
         # Cannot edit other users messages
