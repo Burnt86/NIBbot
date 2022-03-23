@@ -53,7 +53,7 @@ async def on_message(message):
         if message.author == 'NIB#2130':
             nib_answers = (f"Whoops... Sorry my son @{message.author.mention} is so stubborn! Here is the proper link",
                             f"My disappointment is immeasurable @{message.author.mention}")
-            random_nib_answer = f"{nib_answers[randint(0,len(nib_answers))]}\n{newcontent}"
+            random_nib_answer = f"{nib_answers[randint(0,len(nib_answers)-1)]}\n{newcontent}"
             await message.channel.send(random_nib_answer)
             await message.delete(delay=3)
 
@@ -61,7 +61,7 @@ async def on_message(message):
             generic_answers = (f"Come on dude... You can do better {message.author.mention}", 
                                 f"Wow, didn't expect that from you {message.author.mention}")
 
-            random_generic_answer = f"{generic_answers[randint(0,len(generic_answers))]}\n{newcontent}"
+            random_generic_answer = f"{generic_answers[randint(0,len(generic_answers)-1)]}\n{newcontent}"
             await message.channel.send(random_generic_answer)
             await message.delete(delay=3)
         # await asyncio.sleep(3)
