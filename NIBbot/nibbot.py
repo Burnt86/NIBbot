@@ -1,6 +1,7 @@
 # bot.py
 import os
 import discord
+import asyncio
 
 from dotenv import load_dotenv
 
@@ -37,11 +38,30 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
-    # Check who is the author of the message
+    # NIB#2130
+    
+    # Because a Client can’t tell the difference between a bot user and a normal user account, your on_message() handler should protect against a potentially 
+    # recursive case where the bot sends a message that it might, itself, handle. 
     if message.author == client.user:
-        pass
+        return
 
-    print(message.content)
+    if 'https://old.reddit.com' in message.content.lower():
+        # print(message.content)
+        newcontent = message.content.lower().replace('https://old.reddit.com', 'https://reddit.com')
+
+        await message.channel.send('Oupss. Sorry my son is so stubborn here is the proper link')
+        await message.delete(delay=3)
+        await asyncio.sleep(3)
+        await message.channel.send(newcontent)
+
+
+
+        # Cannot edit other users messages
+        # await asyncio.sleep(1)
+        # await message.edit(content=newcontent)
+
+
+    
     # brooklyn_99_quotes = [
     #     'I\'m the human form of the 💯 emoji.',
     #     'Bingpot!',
@@ -55,5 +75,17 @@ async def on_message(message):
     # if message.content == '99!':
     #     response = random.choice(brooklyn_99_quotes)
     #     await message.channel.send(response)    
+
+
+# Error Handling
+@client.event
+async def on_error(event, *args, **kwargs):
+    with open('err.log', 'a') as f:
+        f.write(f'Error: {args[0]}\n')
+        # Catching custom events
+        # if event == 'on_message':
+        #     f.write(f'Unhandled message: {args[0]}\n')
+        # else:
+        #     raise
 
 client.run(TOKEN)
