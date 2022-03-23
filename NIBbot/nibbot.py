@@ -49,33 +49,13 @@ async def on_message(message):
         # print(message.content)
         newcontent = message.content.lower().replace('https://old.reddit.com', 'https://reddit.com')
 
-        await message.channel.send('Oupss. Sorry my son is so stubborn here is the proper link')
+        await message.channel.send(f'Oupss. Sorry my son is so stubborn here is the proper link\n{newcontent}')
         await message.delete(delay=3)
-        await asyncio.sleep(3)
-        await message.channel.send(newcontent)
-
-
+        # await asyncio.sleep(3)
 
         # Cannot edit other users messages
         # await asyncio.sleep(1)
         # await message.edit(content=newcontent)
-
-
-    
-    # brooklyn_99_quotes = [
-    #     'I\'m the human form of the 💯 emoji.',
-    #     'Bingpot!',
-    #     (
-    #         'Cool. Cool cool cool cool cool cool cool, '
-    #         'no doubt no doubt no doubt no doubt.'
-    #     ),
-    # ]
-
-
-    # if message.content == '99!':
-    #     response = random.choice(brooklyn_99_quotes)
-    #     await message.channel.send(response)    
-
 
 # Error Handling
 @client.event
