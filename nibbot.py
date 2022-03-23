@@ -2,7 +2,6 @@
 import os
 import discord
 import asyncio
-
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -33,7 +32,7 @@ async def on_ready():
 async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(
-        f'Hi {member.name}, welcome to my HSL!'
+        f'Hi {member.name}, welcome to HSL! Feel free to get depressed.'
     )
 
 @client.event
