@@ -57,7 +57,7 @@ async def on_message(message):
 
     if 'https://old.reddit.com' in message.content.lower():
         # print(message.content)
-        newcontent = message.content.lower().replace('https://old.reddit.com', 'https://www.reddit.com')
+        newcontent = message.content.lower().replace('https://old.reddit.com', 'https://www.reddit.com', 1)
 
         if str(message.author) == 'NIB#2130':
             nib_answers = (f"Whoops... Sorry my son {message.author.mention} is so stubborn! Here is the proper link",
