@@ -62,9 +62,9 @@ async def on_message(message):
     occurances_http = original_content.count('http://old.reddit.com') 
 
     if occurances_https or occurances_http:
-        print(message.content)
-        newcontent = message.original_content.replace('https://old.reddit.com', 'https://www.reddit.com')
-        newcontent = message.newcontent.replace('http://old.reddit.com', 'https://www.reddit.com')
+        # print(message.content)
+        newcontent = original_content.replace('https://old.reddit.com', 'https://www.reddit.com')
+        newcontent = newcontent.replace('http://old.reddit.com', 'https://www.reddit.com')
 
         if str(message.author) == 'NIB#2130':
             nib_answers = (f"Whoops... Sorry my son {message.author.mention} is so stubborn! Here is the proper link",
@@ -72,7 +72,6 @@ async def on_message(message):
             random_nib_answer = f"{nib_answers[randint(0,len(nib_answers)-1)]}\n{newcontent}"
             await message.channel.send(random_nib_answer)
             await message.delete(delay=3)
-
         else:
             generic_answers = (f"Come on dude... You can do better {message.author.mention}", 
                                 f"Wow, didn't expect that from you {message.author.mention}")
