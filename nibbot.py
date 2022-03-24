@@ -46,6 +46,15 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+    # print(type(message.author))
+    # print(str(message.author)=='Burnt#7812')
+    # print(message.content.lower()=="goodbye nib's mom")
+    
+
+    if str(message.author) == 'Burnt#7812' and message.content.lower() == "goodbye nib's mom":
+        await message.channel.send("Goodbye fellas, no one will be hare to take care of you. <:pepeHands:580461954175467520>")
+        await quit(0)
+
     if 'https://old.reddit.com' in message.content.lower():
         # print(message.content)
         newcontent = message.content.lower().replace('https://old.reddit.com', 'https://www.reddit.com')
