@@ -59,7 +59,7 @@ async def on_message(message):
         # print(message.content)
         newcontent = message.content.lower().replace('https://old.reddit.com', 'https://www.reddit.com')
 
-        if message.author == 'NIB#2130':
+        if str(message.author) == 'NIB#2130':
             nib_answers = (f"Whoops... Sorry my son @{message.author.mention} is so stubborn! Here is the proper link",
                             f"My disappointment is immeasurable @{message.author.mention}")
             random_nib_answer = f"{nib_answers[randint(0,len(nib_answers)-1)]}\n{newcontent}"
