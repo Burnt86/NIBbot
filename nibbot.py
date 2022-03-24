@@ -60,8 +60,8 @@ async def on_message(message):
         newcontent = message.content.lower().replace('https://old.reddit.com', 'https://www.reddit.com')
 
         if str(message.author) == 'NIB#2130':
-            nib_answers = (f"Whoops... Sorry my son @{message.author.mention} is so stubborn! Here is the proper link",
-                            f"My disappointment is immeasurable @{message.author.mention}")
+            nib_answers = (f"Whoops... Sorry my son {message.author.mention} is so stubborn! Here is the proper link",
+                            f"My disappointment is immeasurable {message.author.mention}")
             random_nib_answer = f"{nib_answers[randint(0,len(nib_answers)-1)]}\n{newcontent}"
             await message.channel.send(random_nib_answer)
             await message.delete(delay=3)
