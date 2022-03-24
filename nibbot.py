@@ -56,17 +56,15 @@ async def on_message(message):
         await quit(0)
 
     original_content = message.content.lower()
-    occurances = 0
-    occurances += original_content.count('https://old.reddit.com')
-    occurances += original_content.count('http://old.reddit.com')
+    occurances_https = 0
+    occurances_http = 0
+    occurances_https = original_content.count('https://old.reddit.com')
+    occurances_http = original_content.count('http://old.reddit.com') 
 
-    if original_content.startswith('https://old.reddit.com') or original_content.startswith('http//old.reddit.com') :
+    if occurances_https or occurances_http:
         # print(message.content)
-        startswith_https = 1 if original_content.startswith('https://old.reddit.com') else 0
-        if startswith_https:
-            newcontent = message.content.lower().replace('https://old.reddit.com', 'https://www.reddit.com', 1)
-        else:
-            newcontent = message.content.lower().replace('http://old.reddit.com', 'https://www.reddit.com', 1)
+        newcontent = message.content.lower().replace('https://old.reddit.com', 'https://www.reddit.com', 1)
+        newcontent = message.content.lower().replace('http://old.reddit.com', 'https://www.reddit.com', 1)
 
         if str(message.author) == 'NIB#2130':
             nib_answers = (f"Whoops... Sorry my son {message.author.mention} is so stubborn! Here is the proper link",
@@ -87,8 +85,11 @@ async def on_message(message):
         # Cannot edit other users messages
         # await asyncio.sleep(1)
         # await message.edit(content=newcontent)
-    elif occurances > 0:
-        await message.channel.send(f'Do you think I am a fool {message.author.mention}? <:titoRage:613862929917411450>')
+    # elif occurances_http +  occurances_https > 0:
+    #     await message.channel.send(f'Do you think I am a fool {message.author.mention}? <:titoRage:613862929917411450>')
+
+    if client.user.mentioned_in(message):
+        await message.channel.send(f'Are you talking to me {message.author.mention}? <:titoRage:613862929917411450>')
 
 # Error Handling
 @client.event
