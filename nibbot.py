@@ -55,9 +55,15 @@ async def on_message(message):
         await message.channel.send("Goodbye fellas, no one will be here to take care of you. <:pepeHands:580461954175467520>")
         await quit(0)
 
-    if 'https://old.reddit.com' in message.content.lower():
+    original_content = message.content.lower()
+
+    if original_content.startswith('https://old.reddit.com') or original_content.startswith('http//old.reddit.com') :
         # print(message.content)
-        newcontent = message.content.lower().replace('https://old.reddit.com', 'https://www.reddit.com', 1)
+        startswith_https = 1 if original_content.startswith('https://old.reddit.com') else 0
+        if startswith_https:
+            newcontent = message.content.lower().replace('https://old.reddit.com', 'https://www.reddit.com', 1)
+        else:
+            newcontent = message.content.lower().replace('http://old.reddit.com', 'https://www.reddit.com', 1)
 
         if str(message.author) == 'NIB#2130':
             nib_answers = (f"Whoops... Sorry my son {message.author.mention} is so stubborn! Here is the proper link",
