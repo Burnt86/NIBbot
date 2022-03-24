@@ -56,6 +56,9 @@ async def on_message(message):
         await quit(0)
 
     original_content = message.content.lower()
+    occurances = 0
+    occurances += original_content.count('https://old.reddit.com')
+    occurances += original_content.count('http://old.reddit.com')
 
     if original_content.startswith('https://old.reddit.com') or original_content.startswith('http//old.reddit.com') :
         # print(message.content)
@@ -84,6 +87,8 @@ async def on_message(message):
         # Cannot edit other users messages
         # await asyncio.sleep(1)
         # await message.edit(content=newcontent)
+    elif occurances > 0:
+        await message.channel.send(f'Do you think I am a fool {message.author.mention}? <:titoRage:613862929917411450>')
 
 # Error Handling
 @client.event
