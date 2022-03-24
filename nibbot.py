@@ -62,9 +62,9 @@ async def on_message(message):
     occurances_http = original_content.count('http://old.reddit.com') 
 
     if occurances_https or occurances_http:
-        # print(message.content)
-        newcontent = message.original_content.lower().replace('https://old.reddit.com', 'https://www.reddit.com', 1)
-        newcontent = message.newcontent.lower().replace('http://old.reddit.com', 'https://www.reddit.com', 1)
+        print(message.content)
+        newcontent = message.original_content.replace('https://old.reddit.com', 'https://www.reddit.com')
+        newcontent = message.newcontent.replace('http://old.reddit.com', 'https://www.reddit.com')
 
         if str(message.author) == 'NIB#2130':
             nib_answers = (f"Whoops... Sorry my son {message.author.mention} is so stubborn! Here is the proper link",
