@@ -70,7 +70,8 @@ async def on_message(message):
     if str(message.author) == 'Spirous#8216' and (original_content.count(' left ') or original_content.count('leftist') or original_content.count('kke')):
             spirous_answers = (f"Wow {message.author.mention}, hate em cause you ain't em?",
                                 f"Don't you have something better to talk about {message.author.mention}?",
-                                f"Why are you so interested in the KKE culture? Are you jelly {message.author.mention}?")
+                                f"Why are you so interested in the KKE culture? Are you jelly {message.author.mention}?",
+                                f"There is more to life than left and right {message.author.mention}...")
             random_spirous_answer = f"{spirous_answers[randint(0,len(spirous_answers)-1)]}"
             await message.channel.send(random_spirous_answer)    
 
