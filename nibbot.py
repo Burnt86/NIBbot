@@ -67,8 +67,7 @@ async def on_message(message):
         await message.channel.send("Goodbye fellas, no one will be here to take care of you. <:pepeHands:580461954175467520>")
         await quit(0)
 
-    if str(message.author) == 'Spirous#8216' and (original_content.count(' left ') or original_content.count('leftist') or original_content.count('leftists')
-                                                or original_content.count('kke')):
+    if str(message.author) == 'Spirous#8216' and (original_content.count(' left ') or original_content.count('leftist') or original_content.count('kke')):
             spirous_answers = (f"Wow {message.author.mention}, hate em cause you ain't em?",
                                 f"Don't you have something better to talk about {message.author.mention}?",
                                 f"Why are you so interested in the KKE culture? Are you jelly {message.author.mention}?")
