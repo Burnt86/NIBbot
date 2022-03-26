@@ -63,17 +63,30 @@ async def on_message(message):
 
     original_content = message.content.lower()
 
+    if original_content.count('kke') or original_content.count('κκε') or original_content.count('k-k-e') or original_content.count('κ-κ-ε'):
+        kke_answers = (f"ΕΟΚ και ΝΑΤΟ το ίδιο συνδικάτο", f"Κ-Κ-Ε το κόμμα σου λαέ!",
+                            f"Φονιάδες των λαών αμερικάνοι, κανένας φαντάρος στην Ουκρανία, εμείς δεν πολεμάμε για ΝΑΤΟ-Γερμανία.",
+                            f"Εργάτη μπορείς τούμπα να τους φέρεις, εκείνους που σε κάνουν να υποφέρεις!",
+                            f"Πομπέο δεν ήρθες για καλό, σου κλείνουμε την πόρτα, φύγε από δω!",
+                            f"Ούτε γη ούτε νερό στους φονιάδες των λαών!",
+                            f"Κάναν τη Μεσόγειο θάλασσα νεκρών, όχι στους πολέμους των ιμπεριαλιστών.",
+                            f"Γεράκια Αμερικάνοι φύγετε από δω, ο πλούτος της Ελλάδας ανήκει στο λαό.",
+                            f"Οι ιμπεριαλιστές τη γη ξαναμοιράζουν, με των λαών το αίμα τα σύνορα χαράζουν.",
+                            f"Κλείστε τη Σούδα και τα στρατηγεία, εμείς δεν πολεμάμε στου ΝΑΤΟ τα σφαγεία.",
+                            f"Φονιάδες, ληστές, υποκριτές είναι οι Ευρωπαίοι ιμπεριαλιστές.")
+        random_kke_answer = f"{kke_answers[randint(0,len(kke_answers)-1)]}"
+        await message.channel.send(random_kke_answer)
+
     if str(message.author) == 'Burnt#7812' and original_content == "goodbye nib's mom":
         await message.channel.send("Goodbye fellas, no one will be here to take care of you. <:pepeHands:580461954175467520>")
         await quit(0)
 
-    if str(message.author) == 'Spirous#8216' and (original_content.count(' left ') or original_content.count('leftist') or original_content.count('kke')):
-            spirous_answers = (f"Wow {message.author.mention}, hate em cause you ain't em?",
-                                f"Don't you have something better to talk about {message.author.mention}?",
-                                f"Why are you so interested in the KKE culture? Are you jelly {message.author.mention}?",
-                                f"There is more to life than left and right {message.author.mention}...")
-            random_spirous_answer = f"{spirous_answers[randint(0,len(spirous_answers)-1)]}"
-            await message.channel.send(random_spirous_answer)    
+    if str(message.author) == 'Spirous#8216' and (original_content.count(' left ') or original_content.count('leftist')):
+        spirous_answers = (f"Wow {message.author.mention}, hate em cause you ain't em?",
+                            f"Don't you have something better to talk about {message.author.mention}?",
+                            f"There is more to life than left and right {message.author.mention}...")
+        random_spirous_answer = f"{spirous_answers[randint(0,len(spirous_answers)-1)]}"
+        await message.channel.send(random_spirous_answer)
 
     occurances_https = 0
     occurances_http = 0
