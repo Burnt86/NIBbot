@@ -31,6 +31,12 @@ async def on_ready():
     # print(f'Guild Members:\n - {members}')    
 
 @client.event
+async def on_guild_join(guild):
+    general = client.find(lambda x: x.name == 'reddit',  guild.text_channels)
+    if general:
+        await general.send("Hello friends! Did you miss me? <:lirikHug:230426488351096833>")
+
+@client.event
 async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(
