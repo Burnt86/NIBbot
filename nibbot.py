@@ -61,11 +61,20 @@ async def on_message(message):
     # print(message.content.lower()=="goodbye nib's mom")
     
 
-    if str(message.author) == 'Burnt#7812' and message.content.lower() == "goodbye nib's mom":
+    original_content = message.content.lower()
+
+    if str(message.author) == 'Burnt#7812' and original_content == "goodbye nib's mom":
         await message.channel.send("Goodbye fellas, no one will be here to take care of you. <:pepeHands:580461954175467520>")
         await quit(0)
 
-    original_content = message.content.lower()
+    if str(message.author) == 'Spirous#8216' and (original_content.count(' left ') or original_content.count(' leftist ') or original_content.count(' leftists ')
+                                                or original_content.count(' KKE ')):
+            spirous_answers = (f"Wow {message.author.mention}, hate em cause you ain't em?",
+                                f"Don't you have something better to talk about {message.author.mention}?",
+                                f"Why are you so interested in the KKE culture? Are you jelly {message.author.mention}?")
+            random_spirous_answer = f"{spirous_answers[randint(0,len(spirous_answers)-1)]}"
+            await message.channel.send(random_spirous_answer)    
+
     occurances_https = 0
     occurances_http = 0
     occurances_https = original_content.count('https://old.reddit.com')
