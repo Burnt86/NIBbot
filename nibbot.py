@@ -2,6 +2,7 @@
 import os
 from random import randint
 import discord
+from discord.utils import find
 import asyncio
 from dotenv import load_dotenv
 
@@ -30,11 +31,14 @@ async def on_ready():
     # members = '\n - '.join([member.name for member in guild.members])
     # print(f'Guild Members:\n - {members}')    
 
-@client.event
-async def on_guild_join(guild):
-    general = client.find(lambda x: x.name == 'reddit',  guild.text_channels)
-    if general:
-        await general.send("Hello friends! Did you miss me? <:lirikHug:230426488351096833>")
+# Need to enable intents???
+# @client.event
+# async def on_guild_join(guild):
+#     print(f'guild={guild}')
+#     general = find(lambda x: x.name == 'reddit',  guild.text_channels)
+#     print(f'general={general}')
+#     if general:
+#         await general.send("Hello friends! Did you miss me? <:lirikHug:230426488351096833>")
 
 @client.event
 async def on_member_join(member):
