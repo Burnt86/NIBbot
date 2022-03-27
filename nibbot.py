@@ -62,7 +62,7 @@ async def on_message(message):
     
 
     original_content = message.content.lower()
-
+    
     if original_content.count('kke') or original_content.count('κκε') or original_content.count('k-k-e') or original_content.count('κ-κ-ε'):
         kke_answers = (f"ΕΟΚ και ΝΑΤΟ το ίδιο συνδικάτο", f"Κ-Κ-Ε το κόμμα σου λαέ!",
                             f"Φονιάδες των λαών αμερικάνοι, κανένας φαντάρος στην Ουκρανία, εμείς δεν πολεμάμε για ΝΑΤΟ-Γερμανία.",
@@ -91,24 +91,40 @@ async def on_message(message):
     occurances_http = 0
     occurances_https = original_content.count('https://old.reddit.com')
     occurances_http = original_content.count('http://old.reddit.com') 
+    occurances_https_new = original_content.count('https://www.reddit.com')
 
-    if occurances_https or occurances_http:
+    # channel = discord.utils.get(client.get_all_channels(), name='reddit-archive')
+    # print(channel.id)
+    # reddit-archive channel ID = 957595694506586133 
+
+    channel = client.get_channel(957595694506586133)
+    if message.channel.id == channel.id:
+        if not original_content.startswith('https://old.reddit.com') or original_content.startswith('https://www.reddit.com'):
+            await channel.send(f'Sorry my friend {message.author.mention}, only reddit links allowed here.')
+            await message.delete(delay=3)
+
+    if occurances_https or occurances_http or occurances_https_new:
         # print(message.content)
-        newcontent = original_content.replace('https://old.reddit.com', 'https://www.reddit.com')
-        newcontent = newcontent.replace('http://old.reddit.com', 'https://www.reddit.com')
-
-        if str(message.author) == 'NIB#2130':
-            nib_answers = (f"Whoops... Sorry my son {message.author.mention} is so stubborn! Here is the proper link",
-                            f"My disappointment is immeasurable {message.author.mention}")
-            random_nib_answer = f"{nib_answers[randint(0,len(nib_answers)-1)]}\n{newcontent}"
-            await message.channel.send(random_nib_answer)
-            await message.delete(delay=3)
+        if occurances_https_new:
+            newcontent = original_content
         else:
-            generic_answers = (f"Come on dude... You can do better {message.author.mention}", 
-                                f"Wow, didn't expect that from you {message.author.mention}")
-            random_generic_answer = f"{generic_answers[randint(0,len(generic_answers)-1)]}\n{newcontent}"
-            await message.channel.send(random_generic_answer)
-            await message.delete(delay=3)
+            newcontent = original_content.replace('https://old.reddit.com', 'https://www.reddit.com')
+            newcontent = newcontent.replace('http://old.reddit.com', 'https://www.reddit.com')
+
+        await channel.send(newcontent)
+
+        # if str(message.author) == 'NIB#2130':
+        #     nib_answers = (f"Whoops... Sorry my son {message.author.mention} is so stubborn! Here is the proper link",
+        #                     f"My disappointment is immeasurable {message.author.mention}")
+        #     random_nib_answer = f"{nib_answers[randint(0,len(nib_answers)-1)]}\n{newcontent}"
+        #     await message.channel.send(random_nib_answer)
+        #     await message.delete(delay=3)
+        # else:
+        #     generic_answers = (f"Come on dude... You can do better {message.author.mention}", 
+        #                         f"Wow, didn't expect that from you {message.author.mention}")
+        #     random_generic_answer = f"{generic_answers[randint(0,len(generic_answers)-1)]}\n{newcontent}"
+        #     await message.channel.send(random_generic_answer)
+        #     await message.delete(delay=3)
         # await asyncio.sleep(3)
 
         # Cannot edit other users messages
