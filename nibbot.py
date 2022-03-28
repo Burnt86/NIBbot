@@ -89,10 +89,12 @@ async def on_message(message):
             await message.channel.send("Inco TOP 10\n1. Barbie Dreamhouse Adventures")
         elif original_content.count('vii'):
             await message.channel.send("VII TOP 10\n1. Texas hold 'em")
+        elif original_content.count('pezeteros'):
+            await message.channel.send("Pezeteros TOP 10\n1. Aztec Drush")
 
 
     if original_content.count('kke') or original_content.count('κκε') or original_content.count('k-k-e') or original_content.count('κ-κ-ε'):
-        kke_answers = (f"ΕΟΚ και ΝΑΤΟ το ίδιο συνδικάτο", f"Κ-Κ-Ε το κόμμα σου λαέ!",
+        kke_answers = (f"ΕΟΚ και ΝΑΤΟ το ίδιο συνδικάτο.", f"Κ-Κ-Ε το κόμμα σου λαέ!",
                             f"Φονιάδες των λαών αμερικάνοι, κανένας φαντάρος στην Ουκρανία, εμείς δεν πολεμάμε για ΝΑΤΟ-Γερμανία.",
                             f"Εργάτη μπορείς τούμπα να τους φέρεις, εκείνους που σε κάνουν να υποφέρεις!",
                             f"Πομπέο δεν ήρθες για καλό, σου κλείνουμε την πόρτα, φύγε από δω!",
