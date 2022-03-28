@@ -82,9 +82,11 @@ async def on_message(message):
             #                             "11. bastion\n12. hades\n13. battletech\n14. xcom 2\n15. it takes two\n" + 
             #                             "16. bioshock\n17. destiny\n18. gta5\n19. assassin's creed odyssey\n20. bulletstorm")
         elif original_content.count('melydron'):
-            await message.channel.send("Melydron TOP 10\n1. <:titoRage:613862929917411450>\n2. <:titoRage:613862929917411450>\n3. <:titoRage:613862929917411450>\n4. <:titoRage:613862929917411450>\n" +
-                                        "5. <:titoRage:613862929917411450>\n6. <:titoRage:613862929917411450>\n7. <:titoRage:613862929917411450>\n8. <:titoRage:613862929917411450>\n" + 
-                                        "9. <:titoRage:613862929917411450>\n10. <:titoRage:613862929917411450>")
+            await message.channel.send("Melydron TOP 10\n1. Super Mario Odyssey\n2. Hollow Knight\n3. Hades\n4. Zelda: Breath of the Wild\n5. Elden Ring\n" + 
+                                        "6. Witcher 3\n7. Zelda: Ocarina of Time\n8. Bioshock Infinite\n9. Dragon Age: Origins\n10. Star Wars: Knights of the Old Republic")
+            # await message.channel.send("Melydron TOP 10\n1. <:titoRage:613862929917411450>\n2. <:titoRage:613862929917411450>\n3. <:titoRage:613862929917411450>\n4. <:titoRage:613862929917411450>\n" +
+            #                             "5. <:titoRage:613862929917411450>\n6. <:titoRage:613862929917411450>\n7. <:titoRage:613862929917411450>\n8. <:titoRage:613862929917411450>\n" + 
+            #                             "9. <:titoRage:613862929917411450>\n10. <:titoRage:613862929917411450>")
         elif original_content.count('inco'):
             await message.channel.send("Inco TOP 10\n1. Barbie Dreamhouse Adventures")
         elif original_content.count('vii'):
