@@ -66,7 +66,7 @@ async def on_message(message):
     if original_content.startswith('!top10'):
         if original_content.count('burnt'):
             await message.channel.send('Burnt TOP 10\n1. Atomic Bomberman\n2. Theme Hospital\n3. Rollercoaster Tycoon 3\n4. Heroes of Might and Magic 3\n5. Sim City 2000\n' + 
-                                        '6. Worms Armageddon\n7. Diablo 2\n8. Starcraft 2\n9. Bioshock Infinite\n10. Populous: The Beginning')
+                                        '6. Worms Armageddon\n7. Diablo 2\n8. Starcraft 2\n9. Bioshock Infinite\nWitcher 3')
         elif original_content.count('spirous'):
             await message.channel.send("Spirous TOP 10\n1. Hollow Knight\n2. Heart of Darkness\n3. Metal Gear Solid 2\n4. Donkey Kong Country 3\n5. Super Mario World 2: Yoshi's Island\n" + 
                                         "6. BioShock Infinite\n7. Hades\n8. Ori and the Blind Forest\n9. StarCraft 2\n10. Dota 2")
