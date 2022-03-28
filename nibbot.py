@@ -62,7 +62,35 @@ async def on_message(message):
     
 
     original_content = message.content.lower()
-    
+
+    if original_content.startswith('!top10'):
+        if original_content.count('burnt'):
+            await message.channel.send('Burnt TOP 10\n1. Atomic Bomberman\n2. Theme Hospital\n3. Rollercoaster Tycoon 3\n4. Heroes of Might and Magic 3\n5. Sim City 2000\n' + 
+                                        '6. Worms Armageddon\n7. Diablo 2\n8. Starcraft 2\n9. Bioshock Infinite\n10. Populous: The Beginning')
+        elif original_content.count('spirous'):
+            await message.channel.send("Spirous TOP 10\n1. Hollow Knight\n2. Heart of Darkness\n3. Metal Gear Solid 2\n4. Donkey Kong Country 3\n5. Super Mario World 2: Yoshi's Island\n" + 
+                                        "6. BioShock Infinite\n7. Hades\n8. Ori and the Blind Forest\n9. StarCraft 2\n10. Dota 2")
+        elif original_content.count('lorensoth'):
+            await message.channel.send("Lorensoth TOP 10\n1.Heroes of Might and Magic 3\n2.Baldur's Gate 1-2\n3.Subnautica\n4.Ori and the Blind Forest\n5.Final Fantasy 9\n" + 
+                                        "6.Civilization 5\n7.Shadow Tactics Blades of the Shogun\n8.Caesar3/Pharaoh/Zeus/Emperor\n9.Warcraft 3\n10.Super Metroid\n" + 
+                                        "11.Diddy's Kong Quest 2\n12.Quake 3 Team Arena / Live\n13.Starcraft : Broodwar\n14.Slay the Spire\n15.Crash Bandicoot 3 Warped\n" +
+                                        "16.Age of Empires 2\n17.Counter-Strike 1.3\n18.Medal of Honour : Spearhead\n19.Curse of Monkey Island\n20.Stronghold / Crusader")                                        
+        elif original_content.count('nib'):
+            await message.channel.send('Sorry, my son is retarded.')
+            # await message.channel.send("1. dota 2\n2. apex legends\n3. shattered galaxy\n4. to the moon\n5. brothers\n" + 
+            #                             "6. mass effect\n7. crusader kings 2\n8. forza horizon 5\n9. rayman legends\n10. super meat boy\n" + 
+            #                             "11. bastion\n12. hades\n13. battletech\n14. xcom 2\n15. it takes two\n" + 
+            #                             "16. bioshock\n17. destiny\n18. gta5\n19. assassin's creed odyssey\n20. bulletstorm")
+        elif original_content.count('melydron'):
+            await message.channel.send("Melydron TOP 10\n1. <:titoRage:613862929917411450>\n2. <:titoRage:613862929917411450>\n3. <:titoRage:613862929917411450>\n4. <:titoRage:613862929917411450>\n" +
+                                        "5. <:titoRage:613862929917411450>\n6. <:titoRage:613862929917411450>\n7. <:titoRage:613862929917411450>\n8. <:titoRage:613862929917411450>\n" + 
+                                        "9. <:titoRage:613862929917411450>\n10. <:titoRage:613862929917411450>")
+        elif original_content.count('inco'):
+            await message.channel.send("Inco TOP 10\n1. Barbie Dreamhouse Adventures")
+        elif original_content.count('vii'):
+            await message.channel.send("VII TOP 10\n1. Texas hold 'em")
+
+
     if original_content.count('kke') or original_content.count('κκε') or original_content.count('k-k-e') or original_content.count('κ-κ-ε'):
         kke_answers = (f"ΕΟΚ και ΝΑΤΟ το ίδιο συνδικάτο", f"Κ-Κ-Ε το κόμμα σου λαέ!",
                             f"Φονιάδες των λαών αμερικάνοι, κανένας φαντάρος στην Ουκρανία, εμείς δεν πολεμάμε για ΝΑΤΟ-Γερμανία.",
