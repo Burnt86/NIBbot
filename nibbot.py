@@ -4,6 +4,7 @@ from random import randint
 import discord
 from discord.utils import find
 import asyncio
+import datetime
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -108,6 +109,11 @@ async def on_message(message):
                             f"Φονιάδες, ληστές, υποκριτές είναι οι Ευρωπαίοι ιμπεριαλιστές.")
         random_kke_answer = f"{kke_answers[randint(0,len(kke_answers)-1)]}"
         await message.channel.send(random_kke_answer)
+
+    if original_content.count('!salonica'):
+        d = datetime.datetime.now()
+        d = 28 - int(d.strftime("%d"))
+        await message.channel.send(f'Days left till Salonica Party: {d}')
 
     if str(message.author) == 'Burnt#7812' and original_content == "goodbye nib's mom":
         await message.channel.send("Goodbye fellas, no one will be here to take care of you. <:pepeHands:580461954175467520>")
