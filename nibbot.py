@@ -8,7 +8,7 @@ import datetime
 import re
 import openai
 from dotenv import load_dotenv
-from NIBbot.openai import chatgpt_response
+from openai import chatgpt_response
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -182,7 +182,7 @@ async def on_message(message):
 
     if original_content.startswith('!ai'):
         command=message.content.split(' ')[0]
-        user_message=message.content.replace(text, '')
+        user_message=message.content.replace('!ai', '')
         bot_response = chatgpt_response(prompt=user_message)
         await message.channel.send(f"Answer: {bot_response}")
 
