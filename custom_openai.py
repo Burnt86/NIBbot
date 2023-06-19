@@ -9,7 +9,7 @@ openai.api_key = os.getenv('CHATGPT_API_KEY')
 def chatgpt_response(prompt):
     try:
         # Sending a request to the ChatGPT API
-        response = openai.Completion.create(
+        response = openai.ChatCompletion.create(
             engine="gpt-3.5-turbo",  # Specify the model
             messages=[{"role": "user", "content": prompt}]
             #prompt=prompt,           # Input text
