@@ -61,7 +61,6 @@ async def on_message(message):
     # print(type(message.author))
     # print(str(message.author)=='Burnt#7812')
     # print(message.content.lower()=="goodbye nib's mom")
-    
 
     original_content = message.content.lower()
 
