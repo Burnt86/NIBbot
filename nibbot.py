@@ -179,7 +179,7 @@ async def on_message(message):
         await message.channel.send(f'Are you talking to me {message.author.mention}? <:titoRage:613862929917411450>')
 
     if original_content.startswith('!ai'):
-        user_message=message.content.replace(text, '')
+        user_message=message.content.replace('!ai', '')
         bot_response = chatgpt_response(prompt=user_message)
         await message.channel.send(f"Answer: {bot_response}")
 

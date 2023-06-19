@@ -7,7 +7,7 @@ load_dotenv()
 openai.api_key = os.getenv('CHATGPT_API_KEY')
 
 def chatgpt_response(prompt):
-	response = openai.Completion.create(
+	response = openai.ChatCompletion.create(
 		model="text-davinci-003",
 		prompt=prompt,
 		temperature=1,
