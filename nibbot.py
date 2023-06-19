@@ -7,7 +7,7 @@ import asyncio
 import datetime
 import re
 from dotenv import load_dotenv
-from openai import chatgpt_response
+from custom_openai import chatgpt_response
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
