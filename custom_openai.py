@@ -7,13 +7,18 @@ load_dotenv()
 openai.api_key = os.getenv('CHATGPT_API_KEY')
 
 def chatgpt_response(prompt):
-	response = openai.ChatCompletion.create(
-		model="gpt-3.5-turbo",
-		prompt=prompt,
-		temperature=1,
-		max_tokens=100	
-	)
-	response_dict = response.get("choise")
-	if response_dict and len(response_dict) > 0:
-		prompt_response = response_dict[0]["text"]
-	return prompt_response
+    try:
+        # Sending a request to the ChatGPT API
+        response = openai.Completion.create(
+            engine="gpt-3.5-turbo",  # Specify the model
+            prompt=prompt,           # Input text
+            temperature=0.7,         # Controls randomness: Higher values (closer to 1) make output more random, lower values make it more focused
+            max_tokens=50            # Limit the length of the output text
+        )
+        
+        # Extracting the text from the response
+        return response.choices[0].text
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return "Error"
