@@ -189,11 +189,11 @@ async def on_message(message):
 @client.event
 async def on_error(event, *args, **kwargs):
     with open('err.log', 'a', encoding="utf-8") as f:
-        f.write(f'Error: {args[0]}\n')
+        f.write(f'{args[0]}\n')
         # Catching custom events
-        # if event == 'on_message':
-        #     f.write(f'Unhandled message: {args[0]}\n')
-        # else:
-        #     raise
+        if event == 'on_message':
+            f.write(f'Unhandled message: {args[0]}\n')
+        else:
+            raise
 
 client.run(TOKEN)
