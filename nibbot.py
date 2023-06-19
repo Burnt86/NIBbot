@@ -85,9 +85,6 @@ async def on_message(message):
         elif original_content.count('melydron'):
             await message.channel.send("Melydron TOP 10\n1. Zelda: Tears of the Kingdom\n2. Super Mario Odyssey\n3. Hollow Knight\n4. Hades\n5. Zelda: Breath of the Wild\n6. Elden Ring\n" + 
                                         "7. Witcher 3\n8. Zelda: Ocarina of Time\n9. Bioshock Infinite\n10. Dragon Age: Origins")
-            # await message.channel.send("Melydron TOP 10\n1. <:titoRage:613862929917411450>\n2. <:titoRage:613862929917411450>\n3. <:titoRage:613862929917411450>\n4. <:titoRage:613862929917411450>\n" +
-            #                             "5. <:titoRage:613862929917411450>\n6. <:titoRage:613862929917411450>\n7. <:titoRage:613862929917411450>\n8. <:titoRage:613862929917411450>\n" + 
-            #                             "9. <:titoRage:613862929917411450>\n10. <:titoRage:613862929917411450>")
         elif original_content.count('inco'):
             await message.channel.send("Inco TOP 10\n1. Barbie Dreamhouse Adventures")
         elif original_content.count('vii'):
