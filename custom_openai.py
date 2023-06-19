@@ -10,15 +10,14 @@ def chatgpt_response(prompt):
     try:
         # Sending a request to the ChatGPT API
         response = openai.ChatCompletion.create(
-            engine="gpt-3.5-turbo",  # Specify the model
-            messages=[{"role": "user", "content": prompt}]
-            #prompt=prompt,           # Input text
-            #temperature=0.7,         # Controls randomness: Higher values (closer to 1) make output more random, lower values make it more focused
-            #max_tokens=50            # Limit the length of the output text
+            model = 'gpt-3.5-turbo',
+            messages=[{"role": "user", "content": prompt}],
+            temperature = 0.7,
+            max_tokens=193
         )
         
         # Extracting the text from the response
-        return response.choices[0].message.content
+        return response['choices'][0]['message']['content']
 
     except Exception as e:
         error_str = f"An error occurred: {e}"
