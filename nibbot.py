@@ -188,7 +188,7 @@ async def on_message(message):
 # Error Handling
 @client.event
 async def on_error(event, *args, **kwargs):
-    with open('err.log', 'a') as f:
+    with open('err.log', 'a', encoding="utf-8") as f:
         f.write(f'Error: {args[0]}\n')
         # Catching custom events
         # if event == 'on_message':
