@@ -7,10 +7,15 @@ import asyncio
 import datetime
 import re
 from dotenv import load_dotenv
+from custom_openai import chatgpt_response
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
+
+# intents = discord.Intents.default()
+# intents.message_content = True
+# client = MyClient(intents=intents)
 
 client = discord.Client()
 
@@ -59,9 +64,8 @@ async def on_message(message):
         return
 
     # print(type(message.author))
-    # print(str(message.author)=='Burnt#7812')
+    # print(str(message.author))
     # print(message.content.lower()=="goodbye nib's mom")
-    
 
     original_content = message.content.lower()
 
@@ -86,9 +90,6 @@ async def on_message(message):
         elif original_content.count('melydron'):
             await message.channel.send("Melydron TOP 10\n1. Zelda: Tears of the Kingdom\n2. Super Mario Odyssey\n3. Hollow Knight\n4. Hades\n5. Zelda: Breath of the Wild\n6. Elden Ring\n" + 
                                         "7. Witcher 3\n8. Zelda: Ocarina of Time\n9. Bioshock Infinite\n10. Dragon Age: Origins")
-            # await message.channel.send("Melydron TOP 10\n1. <:titoRage:613862929917411450>\n2. <:titoRage:613862929917411450>\n3. <:titoRage:613862929917411450>\n4. <:titoRage:613862929917411450>\n" +
-            #                             "5. <:titoRage:613862929917411450>\n6. <:titoRage:613862929917411450>\n7. <:titoRage:613862929917411450>\n8. <:titoRage:613862929917411450>\n" + 
-            #                             "9. <:titoRage:613862929917411450>\n10. <:titoRage:613862929917411450>")
         elif original_content.count('inco'):
             await message.channel.send("Inco TOP 10\n1. Barbie Dreamhouse Adventures")
         elif original_content.count('vii'):
@@ -117,7 +118,7 @@ async def on_message(message):
         d = 28 - int(d.strftime("%d"))
         await message.channel.send(f'Days left till Salonica Party: {d}')
 
-    if str(message.author) == 'Burnt#7812' and original_content == "goodbye nib's mom":
+    if str(message.author) == 'burnt86#0' and original_content == "goodbye nib's mom":
         await message.channel.send("Goodbye fellas, no one will be here to take care of you. <:pepeHands:580461954175467520>")
         await quit(0)
 
@@ -176,15 +177,25 @@ async def on_message(message):
     if client.user.mentioned_in(message):
         await message.channel.send(f'Are you talking to me {message.author.mention}? <:titoRage:613862929917411450>')
 
+    if original_content.startswith('!ai'):
+        if str(message.author) == 'melydron#0':
+            user_message=message.content.replace('!ai', '')
+            bot_response = chatgpt_response(prompt=user_message)
+            await message.channel.send(f"Answer: {bot_response}")
+        else:
+            await message.channel.send(f"Sorry {str(message.author)} but you are too poor to use openAI.")
+
+
+
 # Error Handling
 @client.event
 async def on_error(event, *args, **kwargs):
-    with open('err.log', 'a') as f:
-        f.write(f'Error: {args[0]}\n')
+    with open('err.log', 'a', encoding="utf-8") as f:
+        f.write(f'{args[0]}\n')
         # Catching custom events
-        # if event == 'on_message':
-        #     f.write(f'Unhandled message: {args[0]}\n')
-        # else:
-        #     raise
+        if event == 'on_message':
+            f.write(f'Unhandled message: {args[0]}\n')
+        else:
+            raise
 
 client.run(TOKEN)
