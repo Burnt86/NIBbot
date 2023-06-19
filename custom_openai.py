@@ -21,5 +21,5 @@ def chatgpt_response(prompt):
 
     except Exception as e:
         error_str = f"An error occurred: {e}"
-        print(error_str)
+        # print(error_str)
         return error_str
