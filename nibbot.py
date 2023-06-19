@@ -13,8 +13,6 @@ from NIBbot.openai import chatgpt_response
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
-openai.api_key = os.getenv('OPENAI_API_KEY')
-openai.Model.list()
 
 # intents = discord.Intents.default()
 # intents.message_content = True
@@ -181,8 +179,7 @@ async def on_message(message):
         await message.channel.send(f'Are you talking to me {message.author.mention}? <:titoRage:613862929917411450>')
 
     if original_content.startswith('!ai'):
-        command=message.content.split(' ')[0]
-        user_message=message.content.replace(text, '')
+        user_message=message.content.replace('!ai', '')
         bot_response = chatgpt_response(prompt=user_message)
         await message.channel.send(f"Answer: {bot_response}")
 
