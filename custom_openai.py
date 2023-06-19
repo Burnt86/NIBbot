@@ -1,13 +1,13 @@
 from dotenv import load_dotenv
-import custom_openai
+import openai
 import os
 
 load_dotenv()
 
-custom_openai.api_key = os.getenv('CHATGPT_API_KEY')
+openai.api_key = os.getenv('CHATGPT_API_KEY')
 
 def chatgpt_response(prompt):
-	response = custom_openai.ChatCompletion.create(
+	response = openai.ChatCompletion.create(
 		model="gpt-3.5-turbo",
 		prompt=prompt,
 		temperature=1,

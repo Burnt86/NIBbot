@@ -6,9 +6,8 @@ from discord.utils import find
 import asyncio
 import datetime
 import re
-import custom_openai
 from dotenv import load_dotenv
-from custom_openai import chatgpt_response
+from openai import chatgpt_response
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
