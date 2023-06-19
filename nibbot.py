@@ -65,7 +65,7 @@ async def on_message(message):
         return
 
     # print(type(message.author))
-    # print(str(message.author)=='Burnt#7812')
+    # print(str(message.author))
     # print(message.content.lower()=="goodbye nib's mom")
 
     original_content = message.content.lower()
@@ -119,7 +119,7 @@ async def on_message(message):
         d = 28 - int(d.strftime("%d"))
         await message.channel.send(f'Days left till Salonica Party: {d}')
 
-    if str(message.author) == 'Burnt#7812' and original_content == "goodbye nib's mom":
+    if str(message.author) == 'burnt86#0' and original_content == "goodbye nib's mom":
         await message.channel.send("Goodbye fellas, no one will be here to take care of you. <:pepeHands:580461954175467520>")
         await quit(0)
 
