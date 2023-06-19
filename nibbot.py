@@ -178,9 +178,12 @@ async def on_message(message):
         await message.channel.send(f'Are you talking to me {message.author.mention}? <:titoRage:613862929917411450>')
 
     if original_content.startswith('!ai'):
-        user_message=message.content.replace('!ai', '')
-        bot_response = chatgpt_response(prompt=user_message)
-        await message.channel.send(f"Answer: {bot_response}")
+        if str(message.author) == 'melydron#0':
+            user_message=message.content.replace('!ai', '')
+            bot_response = chatgpt_response(prompt=user_message)
+            await message.channel.send(f"Answer: {bot_response}")
+        else:
+            await message.channel.send(f"Sorry {str(message.author)} but you are too poor to use openAI.")
 
 
 
